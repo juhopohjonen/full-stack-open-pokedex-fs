@@ -13,4 +13,12 @@ jobs:
       - name: Hello World
         run: |
           echo "Hello World!"
-        
+      - name: "Date"
+        run: |
+          date
+      - name: "Files in current directory"
+        run: |
+          ls -l
+
+
+          
