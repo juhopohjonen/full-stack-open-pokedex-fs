@@ -48,6 +48,7 @@ module.exports = {
     "react/prop-types": 0,
     "quotes": "off",
     "semi": 0,
-    "no-trailing-spaces": "off"
+    "no-trailing-spaces": "off",
+    "linebreak-style": 0
   }
 }
