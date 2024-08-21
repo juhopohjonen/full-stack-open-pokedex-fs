@@ -8,7 +8,7 @@ const PORT = process.env.PORT || 5000;
 app.use(express.static("dist"));
 
 app.get('/health', (req, res) => {
-  const fail = process.env.HEALTH == 'fail'
+  const fail = process.env.HEALTH === 'fail'
 
   return res.status(fail ? 500 : 200).send(fail ? 'fail' : 'ok')
 
