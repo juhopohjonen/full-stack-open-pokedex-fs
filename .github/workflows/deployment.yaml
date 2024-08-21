@@ -18,8 +18,8 @@ jobs:
         run: npm run eslint
       - name: Tests
         run: npm run test
-      #- name: Install playwright deps
-      #  run: npx playwright install --with-deps
+      - name: Install playwright deps
+        run: npx playwright install --with-deps
       - name: Run e2e tests
         run: npm run test:e2e
       
