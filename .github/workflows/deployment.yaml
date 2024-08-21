@@ -3,9 +3,6 @@ name: Check code and deploy
 on:
   push
 
-env:
-  HEALTH: fail
-
 jobs:
   deployment:
     runs-on: ubuntu-20.04
@@ -21,8 +18,8 @@ jobs:
         run: npm run eslint
       - name: Tests
         run: npm run test
-      - name: Install playwright deps
-        run: npx playwright install --with-deps
+      #- name: Install playwright deps
+      #  run: npx playwright install --with-deps
       - name: Run e2e tests
         run: npm run test:e2e
       
