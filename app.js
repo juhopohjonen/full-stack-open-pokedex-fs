@@ -6,7 +6,7 @@ const PORT = process.env.PORT || 5000;
 
 app.use(express.static("dist"));
 
-const goodHealth = true;
+const goodHealth = false;
 
 app.get('/health', (req, res) => {
   if (goodHealth) {
