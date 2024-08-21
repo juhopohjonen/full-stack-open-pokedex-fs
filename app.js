@@ -3,17 +3,18 @@ const app = express();
 
 // get the port from env variable
 const PORT = process.env.PORT || 5000;
-
+const FAIL = true
 
 app.use(express.static("dist"));
 
 app.get('/health', (req, res) => {
-  const fail = process.env.HEALTH === 'fail'
+  if (FAIL) {
+    return res.status(500).send('fail')
+  }
 
-  return res.status(fail ? 500 : 200).send(fail ? 'fail' : 'ok')
+  return res.status(500).send('fail')
 
 })
-
 
 app.listen(PORT, () => {
   console.log(`server started on port ${PORT}`);

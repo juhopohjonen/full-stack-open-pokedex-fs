@@ -10,9 +10,9 @@ primary_region = 'arn'
 
 [env]
   PORT = "3000"
-  HEALTH = "fail"
 
 [build]
+  strategy = "canary"
 
 [http_service]
   internal_port = 3000
