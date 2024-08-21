@@ -23,3 +23,10 @@ primary_region = 'arn'
 
 [[vm]]
   size = 'shared-cpu-1x'
+
+[[http_service.checks]]
+  grace_period = "20s"
+  interval = "30s"
+  method = "GET"
+  timeout = "10s"
+  path = "/"
