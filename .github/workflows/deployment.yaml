@@ -31,7 +31,9 @@ jobs:
       
       - uses: actions/checkout@v4
       - uses: superfly/flyctl-actions/setup-flyctl@master
+
       - name: Deploy to fly
         run: flyctl deploy --remote-only
         env:
           FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
+        if: ${{ github.event_name == 'push' }}
