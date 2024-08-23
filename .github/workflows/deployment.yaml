@@ -41,8 +41,16 @@ jobs:
   tag_release:
     needs: [deployment]
     runs-on: ubuntu-20.04
+    permissions:
+      contents: write
+
 
     steps:
+
+      - uses: actions/checkout@v4
+        with: 
+          ref: ${{ github.event.pull_request.merge_commit_sha }}
+
       - name: Use semantic version autoincrement
         uses: anothrNick/github-tag-action@1.64.0
         env:
