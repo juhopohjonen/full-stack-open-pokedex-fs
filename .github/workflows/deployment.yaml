@@ -79,5 +79,4 @@ jobs:
 
       - name: skip if skip in commit message(s)
         run: echo "Skip is in commit message"
-        env:
-          if: ${{ contains(github.event.commits.*.message, '#skip') }}
+        if: ${{ contains(github.event.commits.*.message, '#skip') }}
