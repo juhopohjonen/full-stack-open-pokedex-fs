@@ -57,7 +57,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           DEFAULT_BUMP: patch
-        if: ${{ github.event_name == 'push' }}
+        if: ${{ github.event_name == 'push' && !contains(github.event.commits.*.message, '#skip')}}
 
   a_test_job:
     runs-on: ubuntu-20.04
@@ -79,4 +79,3 @@ jobs:
 
       - name: skip if skip in commit message(s)
         run: echo "Skip is in commit message"
-        if: ${{ contains(github.event.commits.*.message, '#skip') }}
