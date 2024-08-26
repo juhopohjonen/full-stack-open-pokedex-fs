@@ -43,7 +43,7 @@ jobs:
         uses: tsickert/discord-webhook@v6.0.0
         with:
           webhook-url: ${{ secrets.FS_WEBHOOK }}
-          content: "Tests succeed on commit ${{ github.event.pull_request.head.sha }}"
+          content: "Tests succeed on commit made by user ${{ github.actor }}"
 
         if: ${{ success() && github.event_name == 'push' }}
 
@@ -51,7 +51,7 @@ jobs:
         uses: tsickert/discord-webhook@v6.0.0
         with:
           webhook-url: ${{ secrets.FS_WEBHOOK }}
-          content: "Tests succeed on commit ${{ github.event.pull_request.head.sha }}"
+          content: "Tests failed on commit made by user ${{ github.actor }}"
 
         if: ${{ failure() }}
 
