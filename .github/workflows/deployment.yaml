@@ -37,6 +37,25 @@ jobs:
         env:
           FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
         if: ${{ github.event_name == 'push' }}
+      
+      - name: Job succeed
+        uses: rjstone/discord-webhook-notify@v1.0.4
+
+        if: ${{ success() && github.event_name == 'push' }}
+        with:
+          severity: info
+          details: A new commit was deployed successfully by ${{ github.event.pull_request.user.login }}
+          webhookUrl: ${{ secrets.FS_WEBHOOK }}
+
+
+      - name: Job failed
+        uses: rjstone/discord-webhook-notify@v1.0.4
+
+        if: ${{ failure() }}
+        with:
+          severity: error
+          details: Deployment tests of commit ${{ github.event.pull_request.head.sha }} failed.
+          webhookUrl: ${{ secrets.FS_WEBHOOK }}
 
   tag_release:
 
