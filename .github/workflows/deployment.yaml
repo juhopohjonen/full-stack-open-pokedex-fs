@@ -48,8 +48,8 @@ jobs:
 
 
       - name: Job failed
-        uses: rjstone/discord-webhook-notify
-        if: ${{ failure }}
+        uses: rjstone/discord-webhook-notify@1
+        if: ${{ failure() }}
         with:
           severity: error
           details: Deployment tests of commit ${{ github.event.pull_request.head.sha }} failed.
