@@ -39,7 +39,8 @@ jobs:
         if: ${{ github.event_name == 'push' }}
       
       - name: Job succeed
-        uses: rjstone/discord-webhook-notify@v1
+        uses: rjstone/discord-webhook-notify@v1.0.4
+
         if: ${{ success() && github.event_name == 'push' }}
         with:
           severity: info
@@ -48,7 +49,8 @@ jobs:
 
 
       - name: Job failed
-        uses: rjstone/discord-webhook-notify@1
+        uses: rjstone/discord-webhook-notify@v1.0.4
+
         if: ${{ failure() }}
         with:
           severity: error
