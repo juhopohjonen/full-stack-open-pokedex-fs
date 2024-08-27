@@ -12,6 +12,6 @@ jobs:
       - name: URL Health Check
         uses: jtalk/url-health-check-action@v4
         with:
-          url: http://doesnotexist.kyselykeskus.fi # testing that with invalid url will fail
+          url: https://full-stack-open-pokedex-fs.fly.dev/ # testing that with invalid url will fail
 
 
